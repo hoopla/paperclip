@@ -360,7 +360,6 @@ module Paperclip
 end
 
 # Set it all up.
-if Object.const_defined?("ActiveRecord")
-  ActiveRecord::Base.send(:include, Paperclip)
-  File.send(:include, Paperclip::Upfile)
-end
+require 'active_record'
+ActiveRecord::Base.send(:include, Paperclip)
+File.send(:include, Paperclip::Upfile)
